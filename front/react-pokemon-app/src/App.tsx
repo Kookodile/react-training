@@ -8,6 +8,9 @@ const App: React.FunctionComponent = () => {
     useEffect(() => {
         setPokemons(POKEMONS);
     }, []);
+    useEffect(() => {
+       console.log("Changement des pokemons",pokemons.length);
+    }, [pokemons]);
 
     return (
         <div className="container">
@@ -25,11 +28,8 @@ const App: React.FunctionComponent = () => {
                                     <p>N°:{id}</p>
                                     <p>Nom:{name}</p>
                                 </div>
-
                             </div>
                         </div>
-
-
                     </div>
 
 
