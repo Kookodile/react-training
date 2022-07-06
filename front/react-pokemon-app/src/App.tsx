@@ -1,42 +1,30 @@
-import React, {FunctionComponent, useState, useEffect} from 'react';
-import POKEMONS from "./models/mock-pokemon";
-import Pokemon from "./models/pokemon";
-import {Box, Paper} from "@mui/material";
+import React, {FunctionComponent} from 'react';
+import PokemonList from "./pages/pokemon-list";
+import PokemonDetail from "./pages/pokemon-detail";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import PageNotFound from "./pages/page-not-found";
 
 const App: React.FunctionComponent = () => {
-    const[pokemons, setPokemons] = useState<Pokemon[]>([]);
-    useEffect(() => {
-        setPokemons(POKEMONS);
-    }, []);
-    useEffect(() => {
-       console.log("Changement des pokemons",pokemons.length);
-    }, [pokemons]);
 
-    return (
-        <div className="container">
-            <h1>Pokédex</h1>
-            <p>Il y a  {pokemons.length} pokémons dans l'appli !</p>
-            <div className="row">
-                {pokemons.map(({name,id,created,picture})=>
-                    <div className="col s6 m4" key={id}>
-                        <div className="card horizontal">
-                            <div className="card-image">
-                                <img src={picture} alt={name}/>
-                            </div>
-                            <div className="card-stacked">
-                                <div className="card-content">
-                                    <p>N°:{id}</p>
-                                    <p>Nom:{name}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                )}
-
-                  </div>
-                </div>
-                    )}
+        return  (
+            <Router>
+                   <div>
+                           {/* bar de nav */}
+                           <nav className="nav-wrapper teal">
+                                <Link to="/" className="brand-logo center">
+                                        Pokédex
+                                </Link>
+                           </nav>
+                           {/*Systeme de gestion des routes de l'appli*/}
+                           <Switch>
+                                   <Route exact path="/" component={PokemonList}/>
+                                   <Route exact path="/pokemons" component={PokemonList}/>
+                                   <Route path="/pokemons/:id" component={PokemonDetail}/>
+                                   <Route component={PageNotFound}/>
+                           </Switch>
+                   </div>
+            </Router>
+        )
+}
 
 export default App;
