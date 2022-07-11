@@ -87,7 +87,7 @@
     {
       "id": 10,
       "name": "Sabelette",
-      "hp": 19,
+      "hp": "18",
       "cp": 3,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
       "types": [

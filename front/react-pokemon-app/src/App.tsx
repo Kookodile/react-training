@@ -4,7 +4,7 @@ import PokemonDetail from "./pages/pokemon-detail";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import PageNotFound from "./pages/page-not-found";
 import PokemonEdit from "./pages/pokemon-edit";
-
+import PokemonAdd from "./pages/pokemon-add";
 
 const App: React.FunctionComponent = () => {
 
@@ -21,6 +21,7 @@ const App: React.FunctionComponent = () => {
                 <Switch>
                     <Route exact path="/" component={PokemonList}/>
                     <Route exact path="/pokemons" component={PokemonList}/>
+                    <Route exact path="/pokemons/add" component={PokemonAdd}/>
                     <Route exact path="/pokemons/edit/:id" component={PokemonEdit}/>
                     <Route path="/pokemons/:id" component={PokemonDetail}/>
                     <Route component={PageNotFound}/>

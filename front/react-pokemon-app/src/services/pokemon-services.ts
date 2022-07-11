@@ -38,6 +38,18 @@ export default class PokemonService {
             .then(response => response.json())
             .catch(error => this.handleError(error));
     }
+    static addPokemon(pokemon: Pokemon): Promise<Pokemon> {
+        delete pokemon.created;
+
+        return fetch(`http://localhost:3001/pokemons`,{
+            method: 'POST',
+            body: JSON.stringify(pokemon),
+            headers: {'Content-Type':'application.json'}
+        })
+            .then(response => response.json())
+            .catch(error => this.handleError(error));
+    }
+
 
     static handleError(error:Error): void {
         console.error(error);
