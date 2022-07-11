@@ -43,17 +43,6 @@
       ]
     },
     {
-      "id": 5,
-      "name": "Roucool",
-      "hp": 30,
-      "cp": 7,
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
-      "types": [
-        "Normal",
-        "Vol"
-      ]
-    },
-    {
       "id": 7,
       "name": "Piafabec",
       "hp": 14,
@@ -82,16 +71,6 @@
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
       "types": [
         "Electrik"
-      ]
-    },
-    {
-      "id": 10,
-      "name": "Sabelette",
-      "hp": "18",
-      "cp": 3,
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
-      "types": [
-        "Normal"
       ]
     },
     {
