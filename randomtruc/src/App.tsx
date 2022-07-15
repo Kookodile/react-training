@@ -1,23 +1,27 @@
-import React, {useState} from 'react';
+import React, {ReactElement, useState} from 'react';
+import {ParentPairImpair} from "./exo1/ParentPairImpair";
+import {Increment} from "./exo0/Increment";
+import {Echiquier} from "./exo2/Echiquier";
 
-type IncrementProps = { value: number, incrementBy?: number, text: string, setValue: (v:number) => void }
 
-function Increment(props: IncrementProps) {
-   //
-    const [text, setText] = useState(props.text);
+type ExoContainerProps = {
 
-    function addText() {
-        setText(text + props.text)
-    }
+    numero: number,
+    children: ReactElement
 
-    function add() {
-       props.setValue(props.value + (props.incrementBy ?? 1))
-    }
-    function onClick() {
-        addText();
-        add();
-    }
-    return <button onClick={onClick}>Vous avez appuyé {props.value} foi{text}</button>
+}
+
+function ExoContainer(props: ExoContainerProps) {
+
+
+    return <div style={{margin:'3rem'}}>
+        <h1>
+            Exercice : {props.numero}
+        </h1>
+       <div style={{margin:'2rem'}}>
+           {props.children}
+       </div>
+    </div>
 }
 
 function App() {
@@ -25,15 +29,29 @@ function App() {
     const [number, setNumber] = useState(0);
     return (
         <div className="App">
-            <header className="App-header">
 
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <Increment setValue={setNumber} incrementBy={4} value={number} text={'s'}></Increment>
-                <Increment setValue={setNumber} incrementBy={undefined} value={number} text={'s'}></Increment>
-                <Increment setValue={setNumber} incrementBy={-1} value={number} text={'z'}></Increment>
-            </header>
+            <ExoContainer numero={0}>
+                <header className="App-header">
+                    <p>
+                        Edit <code>src/App.tsx</code> and save to reload.
+                    </p>
+
+                    <Increment setValue={setNumber} incrementBy={4} value={number} text={'s'}/>
+                    <Increment setValue={setNumber} incrementBy={undefined} value={number} text={'s'}/>
+                    <Increment setValue={setNumber} incrementBy={-1} value={number} text={'z'}/>
+                </header>
+            </ExoContainer>
+
+
+            <ExoContainer numero={1}>
+                <ParentPairImpair/>
+            </ExoContainer>
+
+            <ExoContainer numero={2}>
+                <Echiquier taille={3}></Echiquier>
+            </ExoContainer>
+
+
         </div>
     );
 }

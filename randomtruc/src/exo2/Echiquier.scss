@@ -1,0 +1,19 @@
+.Echiquier {
+  div {
+    display: flex;
+  }
+  span {
+    display: block;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid black;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+
+    &.noir{
+      background-color: black;
+      color: white;
+    }
+  }
+}
